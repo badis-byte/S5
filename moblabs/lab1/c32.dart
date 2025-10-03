@@ -8,18 +8,29 @@ void main(){
 
 List<String> lista = ["ayoo", "kifah", "kifach", "ayoo"];
 
-List<String> mod = ["1"];
+var liste = removeDuplicate(lista);
 
-for (int i =0; i< lista.length; i++){
-  if( ! mod.contains(lista[i]) ){
-    mod.add(lista[i]);
-  }
-}
-
-mod.removeAt(0);
-
-print("${mod}");
-
+print(liste);
 }
 
 
+
+
+List<String> removeDuplicate(List<String> lista){
+
+  Map<String, int> jdida = {};
+
+List<String> liste = [];
+
+
+for(int i =0; i < lista.length; i++){
+
+if( jdida[lista[i]] == null){
+  jdida[lista[i]] = 1;
+  liste.add(lista[i]);
+}
+
+}
+
+return liste;
+}

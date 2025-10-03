@@ -15,24 +15,31 @@ var jdid = capitalizer(sent);
 print(jdid);
 }
 
-String capitalizer(String sentence){
-int n=0;
-String caped = sentence.split("")[0].toUpperCase();
-var senten = sentence.substring(1);
 
-for (var word in senten.split("")){
-  if(word == " " || word == "." || word == ","){
-    n++;
-    caped = caped + word;
-    continue;
+
+bool previousisletter(String sentence, int index){
+  Set<int> accent = {192, 224, 231, 232, 233, 234, 235, 249, 250, 251, 252, 255};
+  if(index ==0){ return false;}
+  if( !accent.contains(sentence[index - 1].codeUnitAt(0)) ){
+    if( !( (sentence[index-1].codeUnitAt(0) >= 65 && sentence[index-1].codeUnitAt(0) <= 90) || (sentence[index-1].codeUnitAt(0) >= 97 && sentence[index-1].codeUnitAt(0) <= 122) ) ){
+      return false;
+    }
+
+    return  true;
   }
-  if(n > 0){
-    caped = caped + word.toUpperCase();
-    n=0;
-  }else{
-    caped = caped + word;
-  }
+  return  true;
 }
-return caped;
 
+String capitalizer(String sentence){
+  var jdida = "";
+  for(int i=0; i<sentence.length; i++){
+    if( previousisletter(sentence, i)){
+      jdida = jdida + sentence[i];
+    }else{
+      jdida = jdida + sentence[i].toUpperCase();
+    }
+  }
+
+
+return jdida;
 }

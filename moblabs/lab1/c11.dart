@@ -19,13 +19,19 @@ if (lett == true){
 
 
 
-bool palindrom(String? word){
-	if(word == null || word!.length == 1){
+bool palindrom(String? wordss){
+
+  
+	if(wordss == null || wordss!.length == 1){
     return true;
-  } else if( word!.length == 2){
-    return word![0] == word![1];
+  } else if( wordss!.length == 2){
+    var words = wordss!.trim();
+    var word= words.toLowerCase();
+      return word![0] == word![1];
   } else{
-    return palindrom( word!.substring(1, word!.length -2));
+    var words = wordss!.trim();
+    var word= words.toLowerCase();
+      return word![0] == word![word!.length-1] && palindrom( word!.substring(1, word!.length -1));
   }
 }
 
