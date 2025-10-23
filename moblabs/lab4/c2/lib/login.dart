@@ -34,7 +34,8 @@ class _LoginState extends State<Login> {
               visible: loggedin,
               child: Center(
                 child: Container(
-                  color: Colors.blueGrey,
+                  width: double.infinity,
+                  color: Colors.white,
                   padding: EdgeInsets.all(20),
                   child: Column(
                     children: [
