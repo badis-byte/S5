@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "appTitle": "MedBox",
+  "profiles":"Profiles",
+  "medicalRecords": "Medical Records",
+  "addRecord": "Add Medical Record"
+}
